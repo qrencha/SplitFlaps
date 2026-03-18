@@ -1,5 +1,4 @@
 let side;
-let angle = 0;
 let hSide;
 let imgT = []
 let imgB = []
@@ -7,8 +6,6 @@ let loadedBImage;   // Letter Bottom
 let loadedTImage;   // Letter Top
 
 let angleInc;   // angular Increment
-let oneSplitflap;
-let splitflapsStop = [];
 let sfRows = [];
 let sfSound;
 let frames = 60 * 6; //frame count for the saved GIF
@@ -16,9 +13,6 @@ let frames = 60 * 6; //frame count for the saved GIF
 let message = [];
 let message2 = [];
 
-// let message = [72, 69, 76, 76, 79,32,87,79,82,76,68,33]; // HELLO WORLD!
-// let message = [72,65,80,80,89,32,66,73,82,84,72,68,65,89,33]; // HAPPY BIRTHDAY!
-// let message = [67,65,70,69,32,76,65,84,84,69,58,32,36,53,46,57,57]; // CAFE LATTE: $5.99
 let numSF;
 let NUMBEROFROWS = 3;
 let NUMBEROFSFPERROW;
@@ -63,25 +57,6 @@ function loadMessage() {
         sfRows[rowNum] = new SFRow(side, numSF, rowNum);
         sfRows[rowNum].initRow(message[rowNum]);
         runningInputMessage = 'undefined';
-
-
-
-        // Check if the cycle is checked
-        // const fullcycleCheckbox = document.querySelector("#seqtypefullcycle")
-        // if (fullcycleCheckbox.checked) {
-        //     fullcycle = true;
-        //     runningFullCycle = "undefined"
-        //     console.log('one cycle', fullcycleCheckbox.checked)
-        //     // var sequence = new Sequence(0,0,1,'fullcycle');
-        //     // sequences = sequences.concat(sequence);
-        //     var stringE = "";
-        //     for (let i = 0; i < NUMBEROFSFPERROW; i++) {
-        //         stringE = stringE.concat('Z');
-        //     }
-        //     message2[rowNum] = string2asciiDecimal(stringE);
-        // }
-
-        // sfRows[rowNum].checkRow(); // only used to check 
 
     }
 
@@ -152,25 +127,12 @@ function draw() {
 
     if (isLooping() === true) {
         console.log(runningInputMessage)
-        // if (fullcycle) {
-        //     if (runningFullCycle == "undefined") {
-        //         console.log('runningFullCycle', runningFullCycle)
-        //         runningFullCycle = 'running';
-        //         console.log('runningFullCycle', runningFullCycle)
-        //         for (let r = 0; r < NUMBEROFROWS; r++) {
-        //             sfRows[r].initRow(message2[r]);
-        //         }
-        //     }
-        // }
-        // if (runningFullCycle == ('stopped')) {
+    
             if (runningInputMessage == 'undefined') {
                 runningInputMessage = 'running';
             //     console.log('runningInputMessage', runningInputMessage)
-            //     for (let r = 0; r < NUMBEROFROWS; r++) {
-            //         sfRows[r].initRow(message[r]);
-            //     }
+        
             }
-        // }
 
         // console.log('isLooping')
         for (let r = 0; r < NUMBEROFROWS; r++) {
